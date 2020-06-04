@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>chapter1</title>
+	<link rel="stylesheet" href="layui/css/layui.css">
+  <style type="text/css">
+    .image{
+      border:20px solid #009688!important;
+      height: 95%;
+      width: 95%;
+    }
+
+    #liId{
+      font-size: 23px;
+    }
+  </style>
+</head>
+<body>
+<div class="layui-bg-gray" style="padding: 25px;font-size:40px;text-align: center;font-family:等线;font-weight:bold;"> Chapter 7 -- Interfaces</div>
+<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief" style="text-align: center;">
+  <ul class="layui-tab-title" style="font-family:等线;font-weight:bold;">
+    <li class="layui-this" id="liId">7.1 -- Introduction></li>
+    <li id="liId">7.2 -- Abstract class vs Interface></li>
+    <li id="liId">7.3 -- video></li>
+    <li id="liId">7.4 -- code demo</li>
+    <li id="liId"> -- test</li>
+  </ul>
+
+  <div class="layui-tab-content">
+  	<div class="layui-tab-item layui-show">
+
+     <div class="layui-carousel" id="test1" style="margin-left: 25%">
+        <div carousel-item >
+          <div><img src="courses\7Interfaces\课件\1.png" class="image"></div>
+        </div>
+      </div> 
+      <br>
+  <div style="text-align:center">
+    <button style="font-size: 20px;background-color:  #009688!important; display:block;margin:0 auto">Download</button>
+  </div>
+    </div>
+
+    <div class="layui-tab-item">
+
+      <div class="layui-carousel" id="test2" style="margin-left: 25%">
+        <div carousel-item >
+          <div><img src="courses\7Interfaces\课件\2.png" class="image"></div>
+          <div><img src="courses\7Interfaces\课件\3.png" class="image"></div>
+          <div><img src="courses\7Interfaces\课件\4.png" class="image"></div>
+          <div><img src="courses\7Interfaces\课件\5.png" class="image"></div>
+          <div><img src="courses\7Interfaces\课件\6.png" class="image"></div>
+        </div>
+      </div> 
+      <br>
+  <div style="text-align:center">
+    <button style="font-size: 20px;background-color:  #009688!important; display:block;margin:0 auto">Download</button>
+  </div>
+    </div>
+
+
+    <div class="layui-tab-item">
+     <video controls="controls"  videoWidth="720" videoHeight="500" style="margin-left: 28%;width: 720px;height: 500px">
+        <source src="courses\7Interfaces\视频\1.mp4" type="video/mp4" />         
+      </video>
+    </div>
+
+    <div class="layui-tab-item">
+
+      <div class="layui-collapse" lay-accordion>
+
+        <div class="layui-colla-item">
+         <h2 class="layui-colla-title" style="font-size: 18px">Code demo</h2>
+          <div class="layui-colla-content layui-show">
+            <pre style="font-weight: bold;font-family: 微软雅黑">
+  public interface Sports
+{
+   public void setHomeTeam(String name);
+   public void setVisitingTeam(String name);
+}
+ 
+// filename: Football.java
+public interface Football extends Sports
+{
+   public void homeTeamScored(int points);
+   public void visitingTeamScored(int points);
+   public void endOfQuarter(int quarter);
+}
+ 
+// filename: Hockey.java
+public interface Hockey extends Sports
+{
+   public void homeGoalScored();
+   public void visitingGoalScored();
+   public void endOfPeriod(int period);
+   public void overtimePeriod(int ot);
+}
+            </pre>
+          </div>
+        </div>
+
+      </div>
+</div>
+
+<div class="layui-tab-item">
+
+<fieldset class="layui-elem-field">
+  <legend>Question</legend>
+  <div class="layui-field-box">
+      <form class="layui-form" action="">
+        <div class="layui-form-item">
+          <div class="layui-input-block">
+          <h1 style="font-weight: bold;font-family: 微软雅黑;font-size: 22px">Which layout manager is used when the size of frame is changed and the position of buttons in frame may be changed?
+</h1>
+      <input type="radio"  name="sex" value="nan" title="BorderLayout"></br>
+      <input type="radio"  name="sex" value="nv" title="FlowLayout"></br>
+      <input type="radio"  name="sex" value="ann" title="CardLayout"></br>
+      <input type="radio"  name="sex" value="nvs" title="GridLayout"></br>
+          </div>
+        </div>
+      </form>
+
+      <div class="site-demo-button" id="layerDemo" style="margin-bottom: 0;margin-left: 6%;margin-bottom: 2%">
+      <button class="layui-btn layui-btn-sm layui-btn-radius" data-method="confirm" style="margin-top: 1%;font-size: 10px">CHECK</button>
+      </div>
+
+    </div>
+</fieldset>
+</div>
+
+  </div>
+
+</div>   
+
+</body>
+<script src="layui/layui.all.js"></script>
+<script>
+  layui.use('carousel',function(){
+  var carousel = layui.carousel;
+  var carousel2 = layui.carousel;
+  var carousel3 = layui.carousel;
+  //建造实例
+  carousel.render({
+    elem: '#test1'
+    ,width: '50%'
+    ,height: '600px' //设置容器宽度
+    ,arrow: 'always' //始终显示箭头
+    ,autoplay:false
+    ,indicator:'outside'
+    //,anim: 'updown' //切换动画方式
+  });
+  carousel2.render({
+    elem: '#test2'
+    ,width: '50%'
+    ,height: '600px' //设置容器宽度
+    ,arrow: 'always' //始终显示箭头
+    ,autoplay:false
+    ,indicator:'outside'
+    //,anim: 'updown' //切换动画方式
+  });
+  carousel3.render({
+    elem: '#test3'
+    ,width: '50%'
+    ,height: '600px' //设置容器宽度
+    ,arrow: 'always' //始终显示箭头
+    ,autoplay:false
+    ,indicator:'outside'
+    //,anim: 'updown' //切换动画方式
+  });
+});
+</script>
+<script>
+layui.use('layer', function(){ //独立版的layer无需执行这一句
+  var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
+  
+  //触发事件
+  var active = {
+   
+   confirm: function(){
+      //配置一个透明的询问框
+      layer.msg('  CORRECT!  ', {
+        time: 20000, //20s后自动关闭
+        btn: [' OKAY ']
+      });
+    }
+
+  };
+  
+  $('#layerDemo .layui-btn').on('click', function(){
+    var othis = $(this), method = othis.data('method');
+    active[method] ? active[method].call(this, othis) : '';
+  });
+  
+});
+</script>
+</html>

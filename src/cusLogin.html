@@ -1,0 +1,201 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Login</title>
+</head>
+<body>
+<link rel="stylesheet" type="text/css" href="css/cusLogin.css" />
+<script src="js/cus.js"></script>
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="js/myfocus-2.0.1.min.js"></script>
+<script type="text/javascript" src="js/SuperSlide.js"></script>
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Raleway:300,600" rel="stylesheet">
+<div class="container">
+    <section id="formHolder">
+
+        <div class="row">
+
+            <!-- Brand Box -->
+            <div class="col-sm-6 brand">
+                <a href="#" class="logo">JAVA<span>&nbsp;.COM</span></a>
+
+                <div class="heading">
+                    <h2>Login</h2>
+                    <p>Hello!</p>
+                </div>
+
+                <div class="success-msg">
+                    <p>Great! You are one of our members now</p>
+                    <a href="#" class="profile">Your Profile</a>
+                </div>
+            </div>
+
+            <!-- Form Box -->
+            <div class="col-sm-6 form">
+
+                <!-- Login Form -->
+                <div class="login form-peice ">
+                    <form class="login-form" >
+                        <div class="form-group">
+                            <label>Account</label>
+                            <input type="text"  id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" id="password" name="password" required>
+                        </div>
+
+                        <div class="CTA">
+                            <a href="profile.html"><input type="button" value="Login" onclick="loginUser()"></a>
+                        </br>
+                            <a href="#" class="switch">Register</a>
+                        </div>
+                    </form>
+                </div>
+                <!-- End Login Form -->
+
+                <!-- Signup Form -->
+                <div class="signup form-peice switched">
+                    <form class="signup-form"  method="post">
+
+                        <div class="form-group">
+                            <label>Account number</label>
+                            <input type="text" name="id" id="id" class="id">
+                            <span class="error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="text" name="email" id="email1" >
+                            <span class="error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone - <small>Must</small>
+                            </label>
+                            <input type="text" name="phone" id="phone">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" name="password2" id="password2" class="pass">
+                            <span class="error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="passwordCon">Confirm Password</label>
+                            <input type="password" name="passwordCon" id="passwordCon" class="passConfirm">
+                            <span class="error"></span>
+                        </div>
+
+                        <div class="CTA">
+                            <a href="profile.html"><input type="button" value="Login" onclick="addUser()" id="submit"></a>
+                            <a class="switch" id="cuslogin">Login</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<br><br>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
+<script>
+    /*global $, document, window, setTimeout, navigator, console, location*/
+    $(document).ready(function() {
+
+        'use strict';
+
+        var usernameError = true,
+            emailError = true,
+            passwordError = true,
+            passConfirm = true;
+
+        // Detect browser for css purpose
+        if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
+            $('.form form label').addClass('fontSwitch');
+        }
+
+        // Label effect
+        $('input').focus(function() {
+
+            $(this).siblings('label').addClass('active');
+        });
+
+        // Form validation
+        $('input').blur(function() {
+
+            // User Name
+            if ($(this).hasClass('name')) {
+                if ($(this).val().length === 0) {
+                    $(this).siblings('span.error').text('请输入账户名').fadeIn().parent('.form-group').addClass('hasError');
+                    usernameError = true;
+                } else if ($(this).val().length > 1 && $(this).val().length <= 6) {
+                    $(this).siblings('span.error').text('Please type at least 6 characters').fadeIn().parent('.form-group').addClass('hasError');
+                    usernameError = true;
+                } else {
+                    $(this).siblings('.error').text('').fadeOut().parent('.form-group').removeClass('hasError');
+                    usernameError = false;
+                }
+            }
+            // Email
+            if ($(this).hasClass('email')) {
+                if ($(this).val().length == '') {
+                    $(this).siblings('span.error').text('Please type your email address').fadeIn().parent('.form-group').addClass('hasError');
+                    emailError = true;
+                } else {
+                    $(this).siblings('.error').text('').fadeOut().parent('.form-group').removeClass('hasError');
+                    emailError = false;
+                }
+            }
+
+            // PassWord
+            if ($(this).hasClass('pass')) {
+                if ($(this).val().length < 8) {
+                    $(this).siblings('span.error').text('Please type at least 8 charcters').fadeIn().parent('.form-group').addClass('hasError');
+                    passwordError = true;
+                } else {
+                    $(this).siblings('.error').text('').fadeOut().parent('.form-group').removeClass('hasError');
+                    passwordError = false;
+                }
+            }
+
+            // PassWord confirmation
+            if ($('.pass').val() !== $('.passConfirm').val()) {
+                $('.passConfirm').siblings('.error').text('Passwords don\'t match').fadeIn().parent('.form-group').addClass('hasError');
+                passConfirm = false;
+            } else {
+                $('.passConfirm').siblings('.error').text('').fadeOut().parent('.form-group').removeClass('hasError');
+                passConfirm = false;
+            }
+
+            // label effect
+            if ($(this).val().length > 0) {
+                $(this).siblings('label').addClass('active');
+            } else {
+                $(this).siblings('label').removeClass('active');
+            }
+        });
+
+
+        // form switch
+        $('a.switch').click(function(e) {
+            $(this).toggleClass('active');
+            e.preventDefault();
+
+            if ($('a.switch').hasClass('active')) {
+                $(this).parents('.form-peice').addClass('switched').siblings('.form-peice').removeClass('switched');
+            } else {
+                $(this).parents('.form-peice').removeClass('switched').siblings('.form-peice').addClass('switched');
+            }
+        });
+
+
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Oline learning environment</title>
+	<link rel="stylesheet" href="src/layui/css/layui.css">
+
+	<style type="text/css">
+	.headline{
+				height: 40px;
+				/*list-style: none;*/
+				font-size: 35px;
+			}
+	.headline span{
+				font-size: 20px;
+				float: right;
+				margin-top:8px;
+			}
+	.layui-nav-item{
+		padding-right: 2.5%;
+		/*padding-top: 0.75%;*/
+		padding-bottom: 0.25%;
+		font-weight: bold;
+		font-family: 等线Light;
+	}
+	.navigation a{
+		font-weight: bold;
+		font-size: 17px;
+	}		
+	.navigation ul{
+				padding: 0px;
+				margin: 0px;
+				/*padding-left: 250px;*/
+			}
+
+		.navigation ul li{
+				
+				/*float: left;*/
+				display: inline;
+				/*font-weight: bold;*/
+				/*font-size: 20px;
+				margin: 0px 1% 10px 2%;*/
+			}
+		.navigation input[name=searchBox]{
+			/*float: right;*/
+			margin-left: 1%;
+			width:140px; 
+			height:25px;
+			margin-right: 20px;
+			display: inline-block;
+		}
+
+		.navigation input[name=userLogin]{
+			/*float: right;*/
+			width:30px; 
+			height:30px;
+			margin-right: 20px;
+			/*display: inline-block;*/
+		}
+		input {
+          display: block;
+          width: 100px;
+          height: 30px;
+          border: #EE491F 1px solid;
+          margin: 0;
+          text-indent: 10px;
+      }
+
+	</style>
+</head>
+<body>
+
+	<!-- 第一个div，为标题栏 -->
+<div class="headline layui-bg-cyan site-demo-button"id="layerDemo">
+	JAVA.COM
+	<span>Java-Programing Learning</span>
+	<button class="layui-btn" data-method="notice" style="font-weight: bold;float: right;margin-top: 1.5px;margin-right: 10px">HELP</button>
+	<!-- <hr> -->
+</div>
+
+	<!-- 第二个div，为导航栏 -->
+<div class="navigation">
+	<ul class="layui-nav layui-bg-green" lay-filter="" style="padding-left: 1%;padding-bottom: 0.8%">
+	<li class="layui-nav-item" ><a href="src/home.html" target="iframe_h">Home</a></li>
+  <li class="layui-nav-item" ><a href="src/courses.html" target="iframe_h">Go to study</a></li>
+  <li class="layui-nav-item" ><a href="src/Coursework.html" target="iframe_h">Coursework</a></li>
+  <li class="layui-nav-item" ><a href="src/mygroup.html" target="iframe_h">My Group</a></li>
+  <li class="layui-nav-item" ><a href="src/coursework/assessment.html" target="iframe_h">Assessment</a></li>
+	<span><input type="input" name="searchBox" value="Go to search" style="padding-top:3px;margin-bottom:5px"></span>
+	<a href="src/search.html" target="iframe_h"><i class="layui-icon layui-icon-search" style="font-size:45px;cursor: pointer;margin-right: 40px;margin-top:28px;"></i></a>
+<a href="src/cusLogin.html" target="iframe_h"><i class="layui-icon layui-icon-username" style="font-size:65px;cursor: pointer;float: right;margin-right: 50px" ></i></a>
+	</ul>
+</div>
+
+	<iframe width=100% height=800px src="src/home.html" style="border: medium none;" name="iframe_h"></iframe>
+
+</body>
+<script src="src/layui/layui.all.js"></script>
+<script>
+layui.use('layer', function(){ //独立版的layer无需执行这一句
+  var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
+  
+  //触发事件
+  var active = {
+    notice: function(){
+      //示范一个公告层
+      layer.open({
+        type: 2
+        ,title: false //不显示标题栏
+        ,closeBtn: false
+        ,area: ['1000px', '650px']
+        ,shade: 0.3
+        ,id: 'LAY_layuipro' //设定一个id，防止重复弹出
+        ,btn: ['CLOSE']
+        ,btnAlign: 'c'
+        ,moveType: 1 //拖拽模式，0或者1
+        // ,content: '<div style="padding: 50px; line-height: 22px; background-color: #393D49; color: #fff; font-weight: 300;">你知道吗？亲！<br>layer ≠ layui<br><br>layer只是作为Layui的一个弹层模块，由于其用户基数较大，所以常常会有人以为layui是layerui<br><br>layer虽然已被 Layui 收编为内置的弹层模块，但仍然会作为一个独立组件全力维护、升级。<br><br>我们此后的征途是星辰大海 ^_^</div>'
+        ,content:'src/help.html'
+        ,zIndex: layer.zIndex 
+      });
+    }
+    
+  };
+  
+  $('#layerDemo .layui-btn').on('click', function(){
+    var othis = $(this), method = othis.data('method');
+    active[method] ? active[method].call(this, othis) : '';
+  });
+  
+});
+</script>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>教学页面</title>
+	<link rel="stylesheet" href="layui/css/layui.css">
+	
+	<style type="text/css">
+
+	</style>
+
+</head>
+<body>
+
+
+<div class="layui-side layui-bg-black" >
+<div class="layui-side-scroll">
+<ul class="layui-nav layui-nav-tree layui-bg-cyan" lay-filter="test" style="font-family:等线;">
+<!-- 侧边导航: <ul class="layui-nav layui-nav-tree layui-nav-side"> -->
+	<li class="layui-nav-item"><a href="c-TeachingA.html" target="iframe_a">Teaching Arrangement</a></li>
+	<li class="layui-nav-item"><a href="Announcement.html" target="iframe_a">Announcement</a></li>
+  <li class="layui-nav-item layui-nav-itemed" style="font-weight: bold">
+    <a href="javascript:;">Slides and Videos</a>
+    <dl class="layui-nav-child" id='demo'>
+      <dd><a href="Chapter1.html" target="iframe_a">Chapter1 - Basic</a></dd>
+      <dd><a href="Chapter2.html" target="iframe_a">Chapter2 - if and while</a></dd>
+      <dd><a href="Chapter3.html" target="iframe_a">Chapter3 - Class&object</a></dd>
+      <dd><a href="Chapter4.html" target="iframe_a">Chapter4 - inheritance</a></dd>
+      <dd><a href="chapter5.html" target="iframe_a">Chapter5 - override</a></dd>
+      <dd><a href="chapter6.html" target="iframe_a">Chapter6 - String</a></dd>
+      <dd><a href="chapter7.html" target="iframe_a">Chapter7 - Interfaces</a></dd>
+
+    </dl>
+  </li>
+
+  <li class="layui-nav-item"><a href="programonline.html" target="iframe_a">Code-testing Online</a></li>
+  <li class="layui-nav-item"><a href="testandcoursework.html" target="iframe_a">Test and Coursework</a></li>
+  <li class="layui-nav-item"><a href="Examination.html" target="iframe_a">Examination</a></li>
+  <li class="layui-nav-item"><a href="discussionboard.html" target="iframe_a">Discussion Board</a></li>
+</ul>
+</div>
+</div>
+<div class="layui-body">
+    <!-- 内容主体区域 -->
+    
+    <iframe src="c-TeachingA.html" name="iframe_a" style="width: 100%;height: 100%;border: medium none"></iframe>
+  </div>
+</body>
+<script src="layui/layui.all.js"></script>
+
+</html>

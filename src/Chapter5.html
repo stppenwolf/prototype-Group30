@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>chapter1</title>
+  <link rel="stylesheet" href="layui/css/layui.css">
+  <style type="text/css">
+    .image{
+      border:20px solid #009688!important;
+      height: 95%;
+      width: 95%;
+    }
+
+    #liId{
+      font-size: 23px;
+    }
+  </style>
+</head>
+<body>
+<!--   <div style="padding: 11px;margin-bottom: 0.8%;">
+  <button class="layui-btn layui-btn-warm" style="float: right;">Ask Question</button>>
+    </div> -->
+<div class="layui-bg-gray" style="padding: 25px;font-size:40px;text-align: center;font-family:等线;font-weight:bold;"> Chapter 5 -- override and overload</div>
+<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief" style="text-align: center;">
+  <ul class="layui-tab-title" style="font-family:等线;font-weight:bold;">
+    <li class="layui-this" id="liId">5.1 -- Overriding></li>
+    <li id="liId">5.2 -- Overloading></li>
+    <li id="liId">5.3 -- Writing classes></li>
+    <li id="liId">5.4 -- video></li>
+    <li id="liId">5.5 -- code demo</li>
+    <li id="liId">-- test</li>
+  </ul>
+
+  <div class="layui-tab-content">
+    <div class="layui-tab-item layui-show">
+
+     <div class="layui-carousel" id="test1" style="margin-left: 25%">
+        <div carousel-item >
+          <div><img src="courses\5override and overload\课件\1.png" class="image"></div>
+          <div><img src="courses\5override and overload\课件\2.png" class="image"></div>
+        </div>
+      </div> 
+
+    </div>
+
+    <div class="layui-tab-item">
+
+      <div class="layui-carousel" id="test2" style="margin-left: 25%">
+        <div carousel-item>
+          <div><img src="courses\5override and overload\课件\3.png"class="image"></div>
+        </div>
+      </div> 
+
+    </div>
+
+    <div class="layui-tab-item">
+      
+      <div class="layui-carousel" id="test3" style="margin-left: 25%">
+        <div carousel-item >
+          <div><img src="courses\5override and overload\课件\4.png" class="image"></div>
+          <div><img src="courses\5override and overload\课件\5.png" class="image"></div>
+          <div><img src="courses\5override and overload\课件\6.png" class="image"></div>
+        </div>
+      </div> 
+      <br>
+  <div style="text-align:center">
+    <button style="font-size: 20px;background-color:  #009688!important; display:block;margin:0 auto">Download</button>
+  </div>
+    </div>
+
+    <div class="layui-tab-item">
+     <video controls="controls"  videoWidth="720" videoHeight="500" style="margin-left: 28%;width: 720px;height: 500px">
+        <source src="courses\5override and overload\视频\1.mp4" type="video/mp4" />         
+      </video>
+    </div>
+
+    <div class="layui-tab-item">
+
+      <div class="layui-collapse" lay-accordion>
+
+        <div class="layui-colla-item">
+         <h2 class="layui-colla-title" style="font-size: 18px">Code demo 1 - if statement</h2>
+          <div class="layui-colla-content layui-show">
+            <pre style="font-weight: bold;font-family: 微软雅黑">
+  class Animal{
+   public void move(){
+      System.out.println("move");
+   }
+  }
+ 
+  class Dog extends Animal{
+   public void move(){
+      System.out.println("run");
+   }
+  }
+ 
+  public class TestDog{
+   public static void main(String args[]){
+      Animal a = new Animal(); 
+      Animal b = new Dog(); 
+      a.move();
+      b.move();
+   }
+  }
+
+move
+run
+            </pre>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+<div class="layui-tab-item">
+
+<fieldset class="layui-elem-field">
+  <legend>Question</legend>
+  <div class="layui-field-box">
+      <form class="layui-form" action="">
+        <div class="layui-form-item">
+          <div class="layui-input-block">
+          <h1 style="font-weight: bold;font-family: 微软雅黑;font-size: 22px">class Book{
+　　protected int getPrice(){
+　　return 30;
+　　}
+　　}
+　　public class ComputerBook extends Book{
+　　}
+
+</h1>
+      <input type="radio"  name="sex" value="nan" title="protected float getPrice(){}"></br>
+      <input type="radio"  name="sex" value="nv" title="protected int getPrice(int page){}"></br>
+      <input type="radio"  name="sex" value="ann" title="int getPrice(){}"></br>
+      <input type="radio"  name="sex" value="nvs" title="public int getPrice(){return 10;}"></br>
+          </div>
+        </div>
+      </form>
+
+      <div class="site-demo-button" id="layerDemo" style="margin-bottom: 0;margin-left: 6%;margin-bottom: 2%">
+      <button class="layui-btn layui-btn-sm layui-btn-radius" data-method="confirm" style="margin-top: 1%;font-size: 10px">CHECK</button>
+      </div>
+
+    </div>
+</fieldset>
+</div>
+
+
+  </div>
+
+   
+
+</body>
+<script src="layui/layui.all.js"></script>
+<script>
+  layui.use('carousel',function(){
+  var carousel = layui.carousel;
+  var carousel2 = layui.carousel;
+  var carousel3 = layui.carousel;
+  //建造实例
+  carousel.render({
+    elem: '#test1'
+    ,width: '50%'
+    ,height: '600px' //设置容器宽度
+    ,arrow: 'always' //始终显示箭头
+    ,autoplay:false
+    ,indicator:'outside'
+    //,anim: 'updown' //切换动画方式
+  });
+  carousel2.render({
+    elem: '#test2'
+    ,width: '50%'
+    ,height: '600px' //设置容器宽度
+    ,arrow: 'always' //始终显示箭头
+    ,autoplay:false
+    ,indicator:'outside'
+    //,anim: 'updown' //切换动画方式
+  });
+  carousel3.render({
+    elem: '#test3'
+    ,width: '50%'
+    ,height: '600px' //设置容器宽度
+    ,arrow: 'always' //始终显示箭头
+    ,autoplay:false
+    ,indicator:'outside'
+    //,anim: 'updown' //切换动画方式
+  });
+});
+</script>
+<script>
+layui.use('layer', function(){ //独立版的layer无需执行这一句
+  var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
+  
+  //触发事件
+  var active = {
+   
+   confirm: function(){
+      //配置一个透明的询问框
+      layer.msg('  CORRECT!  ', {
+        time: 20000, //20s后自动关闭
+        btn: [' OKAY ']
+      });
+    }
+
+  };
+  
+  $('#layerDemo .layui-btn').on('click', function(){
+    var othis = $(this), method = othis.data('method');
+    active[method] ? active[method].call(this, othis) : '';
+  });
+  
+});
+</script>
+</html>

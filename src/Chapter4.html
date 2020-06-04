@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>chapter1</title>
+	<link rel="stylesheet" href="layui/css/layui.css">
+  <style type="text/css">
+    .image{
+      border:20px solid #009688!important;
+      height: 95%;
+      width: 95%;
+    }
+
+    #liId{
+      font-size: 23px;
+    }
+  </style>
+</head>
+<body>
+<div class="layui-bg-gray" style="padding: 25px;font-size:40px;text-align: center;font-family:等线;font-weight:bold;"> Chapter 4 -- inheritance</div>
+<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief" style="text-align: center;">
+  <ul class="layui-tab-title" style="font-family:等线;font-weight:bold;">
+    <li class="layui-this" id="liId">4.1 -- Introduction></li>
+    <li id="liId">4.2 -- Inheritance of superclass 'Doctor'></li>
+    <li id="liId">4.3 -- video></li>
+    <li id="liId">4.4 -- code demo</li>
+    <li id="liId">-- test</li>
+  </ul>
+
+  <div class="layui-tab-content">
+  	<div class="layui-tab-item layui-show">
+
+     <div class="layui-carousel" id="test1" style="margin-left: 25%">
+        <div carousel-item >
+          <div><img src="courses\4inheritance\课件\1.png" class="image"></div>
+          <div><img src="courses\4inheritance\课件\2.png" class="image"></div>
+        </div>
+      </div> 
+      <br>
+  <div style="text-align:center">
+    <button style="font-size: 20px;background-color:  #009688!important; display:block;margin:0 auto">Download</button>
+  </div>
+    </div>
+
+    <div class="layui-tab-item">
+
+      <div class="layui-carousel" id="test2" style="margin-left: 25%">
+        <div carousel-item >
+          <div><img src="courses\4inheritance\课件\3.png" class="image"></div>
+          <div><img src="courses\4inheritance\课件\4.png" class="image"></div>
+          <div><img src="courses\4inheritance\课件\5.png" class="image"></div>
+          <div><img src="courses\4inheritance\课件\6.png" class="image"></div>
+          <div><img src="courses\4inheritance\课件\7.png" class="image"></div>
+          <div><img src="courses\4inheritance\课件\8.png" class="image"></div>
+        </div>
+      </div> 
+      <br>
+  <div style="text-align:center">
+    <button style="font-size: 20px;background-color:  #009688!important; display:block;margin:0 auto">Download</button>
+  </div>
+    </div>
+
+    <div class="layui-tab-item">
+     <video controls="controls"  videoWidth="720" videoHeight="500" style="margin-left: 28%;width: 720px;height: 500px">
+        <source src="courses\4inheritance\视频\1.mp4" type="video/mp4" />         
+      </video>
+    </div>
+
+    <div class="layui-tab-item">
+
+      <div class="layui-collapse" lay-accordion>
+        <div class="layui-colla-item">
+         <h2 class="layui-colla-title" style="font-size: 18px">Code demo 1 - if statement</h2>
+          <div class="layui-colla-content layui-show">
+            <pre style="font-weight: bold;font-family: 微软雅黑">
+class SuperClass {
+  private int n;
+  SuperClass(){
+    System.out.println("SuperClass()");
+  }
+  SuperClass(int n) {
+    System.out.println("SuperClass(int n)");
+    this.n = n;
+  }
+}
+class SubClass extends SuperClass{
+  private int n;
+  
+  SubClass(){ 
+    System.out.println("SubClass");
+  }  
+  
+  public SubClass(int n){ 
+    super(300);  
+    System.out.println("SubClass(int n):"+n);
+    this.n = n;
+  }
+}
+class SubClass2 extends SuperClass{
+  private int n;
+  
+  SubClass2(){
+    super(300);  
+    System.out.println("SubClass2");
+  }  
+  
+  public SubClass2(int n){ 
+    System.out.println("SubClass2(int n):"+n);
+    this.n = n;
+  }
+}
+public class TestSuperSub{
+  public static void main (String args[]){
+    System.out.println("------SubClass ------");
+    SubClass sc1 = new SubClass();
+    SubClass sc2 = new SubClass(100); 
+    System.out.println("------SubClass2------");
+    SubClass2 sc3 = new SubClass2();
+    SubClass2 sc4 = new SubClass2(200); 
+  }
+}
+
+
+------SubClass ------
+SuperClass()
+SubClass
+SuperClass(int n)
+SubClass(int n):100
+------SubClass2 ------
+SuperClass(int n)
+SubClass2
+SuperClass()
+SubClass2(int n):200
+            </pre>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  <div class="layui-tab-item">
+
+<fieldset class="layui-elem-field">
+  <legend>Question</legend>
+  <div class="layui-field-box">
+      <form class="layui-form" action="">
+        <div class="layui-form-item">
+          <div class="layui-input-block">
+          <h1 style="font-weight: bold;font-family: 微软雅黑;font-size: 22px">Which of the following statements about inheritance is true? ( AD )
+</h1>
+      <input type="radio"  name="sex" value="nan" title="In Java, classes only allow one inheritance."></br>
+      <input type="radio"  name="sex" value="nv" title="In Java, a class can only implement one interface."></br>
+      <input type="radio"  name="sex" value="ann" title="In Java, a class cannot inherit a class and implement a join at the same time"></br>
+      <input type="radio"  name="sex" value="nvs" title="In Java, an interface can inherit multiple interfaces."></br>
+      
+
+        </div>
+        </div>
+      </form>
+
+      <div class="site-demo-button" id="layerDemo" style="margin-bottom: 0;margin-left: 6%;margin-bottom: 2%">
+      <button class="layui-btn layui-btn-sm layui-btn-radius" data-method="confirm" style="margin-top: 1%;font-size: 10px">CHECK</button>
+      </div>
+
+    </div>
+</fieldset>
+</div>
+
+
+  </div>
+
+
+</body>
+<script src="layui/layui.all.js"></script>
+<script>
+  layui.use('carousel',function(){
+  var carousel = layui.carousel;
+  var carousel2 = layui.carousel;
+  var carousel3 = layui.carousel;
+  //建造实例
+  carousel.render({
+    elem: '#test1'
+    ,width: '50%'
+    ,height: '600px' //设置容器宽度
+    ,arrow: 'always' //始终显示箭头
+    ,autoplay:false
+    ,indicator:'outside'
+    //,anim: 'updown' //切换动画方式
+  });
+  carousel2.render({
+    elem: '#test2'
+    ,width: '50%'
+    ,height: '600px' //设置容器宽度
+    ,arrow: 'always' //始终显示箭头
+    ,autoplay:false
+    ,indicator:'outside'
+    //,anim: 'updown' //切换动画方式
+  });
+});
+</script>
+<script>
+layui.use('layer', function(){ //独立版的layer无需执行这一句
+  var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
+  
+  //触发事件
+  var active = {
+   
+   confirm: function(){
+      //配置一个透明的询问框
+      layer.msg('  CORRECT!  ', {
+        time: 20000, //20s后自动关闭
+        btn: [' OKAY ']
+      });
+    }
+
+  };
+  
+  $('#layerDemo .layui-btn').on('click', function(){
+    var othis = $(this), method = othis.data('method');
+    active[method] ? active[method].call(this, othis) : '';
+  });
+  
+});
+</script>
+</html>

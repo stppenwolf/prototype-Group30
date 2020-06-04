@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Search</title>
+	<style>
+		      * {
+          margin: 0;
+          padding: 0;
+      }
+      input {
+          display: block;
+          width: 400px;
+          height: 30px;
+          border: #EE491F 1px solid;
+          margin: 100px auto 0;
+          text-indent: 10px;
+      }
+      ul {
+          display: block;
+          width: 400px;
+          /* border-bottom: black 1px solid; */
+          
+          margin: 0 auto;
+      }
+      li {
+          list-style: none;
+          display: block;
+          height: 50px;
+          line-height: 50px;
+          width: 100%;
+      }
+      a {
+          display: block;
+          width: 100%;
+          height: 40px;
+          /* border-bottom: #CCC 1px solid; */
+          
+          text-decoration: none;
+          color: #333;
+          line-height: 40px;
+          font-size: 12px;
+      }
+
+      @import url('https://fonts.googleapis.com/css?family=Raleway:400,700,900');
+/* Base styling */
+
+body {
+    width: 430px;
+    margin: 0 auto;
+    background-color: white;
+    font-family: 'Raleway', sans-serif;
+}
+.search__container {
+    padding-top: 64px;
+}
+.search__title {
+    font-size: 22px;
+    font-weight: 900;
+    text-align: center;
+    color: #009688;
+}
+.search__input {
+    width: 100%;
+    padding: 12px 24px;
+    background-color: transparent;
+    transition: transform 250ms ease-in-out;
+    font-size: 14px;
+    line-height: 18px;
+    color: #575756;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+    background-position: 95% center;
+    border-radius: 50px;
+    border: 1px solid #575756;
+    transition: all 250ms ease-in-out;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+}
+.search__input::placeholder {
+    color: rgba(87, 87, 86, 0.8);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+.search__input:hover,
+.search__input:focus {
+    padding: 12px 0;
+    outline: 0;
+    border: 1px solid transparent;
+    border-bottom: 1px solid #575756;
+    border-radius: 0;
+    background-position: 100% center;
+}
+.credits__container {
+    margin-top: 24px;
+}
+.credits__text {
+    text-align: center;
+    font-size: 13px;
+    line-height: 18px;
+}
+.credits__link {
+    color: #009688;
+    text-decoration: none;
+    transition: color 250ms ease-in;
+}
+.credits__link:hover,
+.credits__link:focus {
+    color: rgb(191, 137, 135);
+}
+	</style>
+</head>
+<body>
+
+<div class="search__container">
+    <p class="search__title">
+        Search for your want or help
+    </p>
+    <input class="search__input" type="text" placeholder="Try to input Help">
+    <ul>
+
+    </ul>
+</div>
+
+<div class="credits__container">
+    <p class="credits__text">Help documentation search <a href="home.html"  class="credits__link">JAVA.COM</a>
+    </p>
+</div>
+
+</body>
+<script>
+	        window.onload = function() {
+            var data = {
+                "specialty": [{
+                    "specialtyName": "Help-Chapter 1 -- The Java language and object-oriented"
+                }, {
+                    "specialtyName": "Help-Chapter 2 -- if and while"
+                }, {
+                    "specialtyName": "Help-Chapter 3 -- Class and object"
+                }, {
+                    "specialtyName": "Help-Chapter 4 -- inheritance"
+                }, {
+                    "specialtyName": "Help-Chapter 5 -- override and overload"
+                }, {
+                    "specialtyName": "Help-Chapter 6 -- Strings"
+                }, {
+                    "specialtyName": "Help-Chapter 7 -- Interfaces"
+                }, {
+                    "specialtyName": "Help"
+                }]
+            }
+
+            var input = document.getElementsByTagName("input")[0];
+            var ul = document.getElementsByTagName("ul")[0];
+            ul.style.display = "none";
+
+            input.onkeyup = function() {
+                remove();
+                var arr_1 = [];
+                var arr_2 = ["Chapter1.html","Chapter2.html","Chapter3.html","Chapter4.html","Chapter5.html","Chapter6.html","Chapter7.html","courses.html"];
+                for (var index = 0; index < data.specialty.length; index++) {
+                    if (data.specialty[index].specialtyName.indexOf(this.value) > -1 && this.value.length > 0) {
+                        arr_1.push(data.specialty[index].specialtyName);
+                    }
+                }
+
+                console.log(arr_1);
+                console.log(arr_2);
+                if (arr_1.length > 0) {
+                    remove();
+                    create(arr_1, arr_2);
+                }
+            }
+
+            function create(arr_1, arr_2) {
+                ul.style.display = "block";
+                for (var index = 0; index < arr_1.length; index++) {
+                    var li = document.createElement("li");
+                    li.innerHTML = "<a href='" + arr_2[index] + "'>" + arr_1[index] + "</a>";
+                    ul.appendChild(li);
+                }
+            }
+
+            function remove() {
+                ul.style.display = "none";
+                for (var index = ul.childNodes.length - 1; index >= 0; index--) {
+                    ul.removeChild(ul.childNodes[index]);
+                }
+            }
+        }
+</script>
+</html>
